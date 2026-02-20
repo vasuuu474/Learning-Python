@@ -1,0 +1,29 @@
+class BankAccount:
+    def __init__(User,AccHolderName , Acc_Num, Balance):
+        User.AccHolderName = AccHolderName 
+        User.Acc_Num = Acc_Num 
+        User.Balance= Balance
+    def deposit(User, amount):
+        if amount > 0:
+            User.Balance += amount
+        else :
+            print("Invalid Input")
+    def withdraw(User , amount):
+        if amount <= User.Balance:
+            User.Balance -= amount
+    def display_balance(User):
+        print(f"""
+            Account Holder Name : {User.AccHolderName}
+            Account Number      : {User.Acc_Num}
+            Balance             : {User.Balance}""")
+
+name = input("Enter your Name: ")
+num = int(input("Enter your Account No. : "))
+bal = float(input("Enter your Balance: "))
+dep = float(input("Enter Deposit Amount : "))
+withdraw = float(input("Enter Withdraw: "))
+
+p1=BankAccount(name,num,bal)
+p1.deposit(dep)
+p1.withdraw(withdraw)
+p1.display_balance()
